@@ -42,17 +42,16 @@ class Game2048:
                 new_row = self._merge(row)
                 self.board[i, :] = new_row
                 
-        # Add a random tile if the board has changed after the move
+
         if not np.array_equal(original_board, self.board):
             self.add_random_tile()
             
     def _merge(self, line):
-        # Slide non-zero values to the front
+
         non_zeros = [num for num in line if num != 0]
         zeros = [0] * (len(line) - len(non_zeros))
         merged_line = non_zeros + zeros
-        
-        # Merge same consecutive numbers and double their value
+
         i = 0
         while i < len(merged_line) - 1:
             if merged_line[i] == merged_line[i+1] and merged_line[i] != 0:
@@ -65,10 +64,9 @@ class Game2048:
         return merged_line
     
     def game_over(self):
-        # If there's an empty cell, then it's not game over
         if 0 in self.board:
             return False
-        # Check for possible merges in rows and columns
+
         for i in range(self.size):
             for j in range(self.size-1):
                 if self.board[i, j] == self.board[i, j+1] or self.board[j, i] == self.board[j+1, i]:
@@ -81,7 +79,6 @@ class Game2048:
     def get_board(self):
         return self.board.copy()
 
-# Test the game logic
 game = Game2048()
 print("Initial board:")
 print(game.get_board())
