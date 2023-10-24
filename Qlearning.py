@@ -17,6 +17,7 @@ class QLearningAgent:
         q_values = [self.q_table.get((state, action), 0) for action in self.actions]
         max_q_value = max(q_values)
 
+
         actions_with_max_q_value = [action for action, q_value in enumerate(q_values) if q_value == max_q_value]
         return np.random.choice(actions_with_max_q_value)
     

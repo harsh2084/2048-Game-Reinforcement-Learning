@@ -64,9 +64,10 @@ class Game2048:
         return merged_line
     
     def game_over(self):
+
         if 0 in self.board:
             return False
-
+        # Check for possible merges in rows and columns
         for i in range(self.size):
             for j in range(self.size-1):
                 if self.board[i, j] == self.board[i, j+1] or self.board[j, i] == self.board[j+1, i]:
@@ -79,10 +80,11 @@ class Game2048:
     def get_board(self):
         return self.board.copy()
 
+# Test the game logic
 game = Game2048()
 print("Initial board:")
 print(game.get_board())
 
 game.move(3) 
-print("\nBoard after moving right:")
-print(game.get_board())
+print("\nBoard after moving:")
+# print(game.get_board())

@@ -2,6 +2,14 @@ from game_logic import Game2048
 from Qlearning import QLearningAgent
 import numpy as np
 
+
+# direction can be: 0 (up), 1 (right), 2 (down), 3 (left)
+directions={
+    0: 'up',
+    1: 'right',
+    2:'down',
+    3:'left'
+}
 def train_agent(agent, game, episodes=500):
     scores = []
     for episode in range(episodes):
@@ -21,6 +29,9 @@ def train_agent(agent, game, episodes=500):
             total_reward += reward
         
         scores.append(total_reward)
+        if episode<10: 
+            print("after moving ",directions[action])
+            print(game.get_board())
     return scores
 
 agent = QLearningAgent(actions=[0, 1, 2, 3])
