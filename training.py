@@ -27,11 +27,11 @@ def train_agent(agent, game, episodes=500):
             agent.learn(current_state, action, reward, next_state)
             current_state = next_state
             total_reward += reward
+            if episode<2: 
+             print("after moving ",directions[action])
+             print(game.get_board())
         
         scores.append(total_reward)
-        if episode<10: 
-            print("after moving ",directions[action])
-            print(game.get_board())
     return scores
 
 agent = QLearningAgent(actions=[0, 1, 2, 3])
