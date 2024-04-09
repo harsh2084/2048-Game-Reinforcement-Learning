@@ -38,6 +38,3 @@ In our simplified implementation, the agent achieved an average score of approxi
 3. **Exploration Strategies**: More advanced exploration strategies, like epsilon-decreasing policies, can be used to balance exploration and exploitation better.
 4. **Transfer Learning**: Once an agent is trained on 2048, its knowledge could potentially be transferred to other similar games or puzzles, reducing the training time for those tasks.
 
----
-
-This report provides a high-level overview of the approach and outcomes. For a more detailed analysis, one might consider diving deeper into the intricacies of the game and the RL algorithms used.
